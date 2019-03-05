@@ -1,14 +1,14 @@
 import fetch from 'node-fetch';
 import { MorningBriefing } from './models';
 
-const getSSML = (url: string): Promise<string> => {
+const getBriefingContent = (url: string): Promise<MorningBriefing> => {
   return fetch(url)
-    .then<MorningBriefing[]>(res => {
+    .then<MorningBriefing>(res => {
       return res.json();
     })
     .then(briefing => {
-      return briefing[0].ssml;
+      return briefing;
     });
 };
 
-export { getSSML };
+export { getBriefingContent };
