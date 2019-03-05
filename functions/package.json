@@ -13,13 +13,16 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@google-cloud/storage": "^2.4.2",
     "@types/node-fetch": "^2.1.6",
     "actions-on-google": "^2.5.0",
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.0.3",
+    "fs-extra": "^7.0.1",
     "node-fetch": "^2.3.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^5.0.5",
     "@types/jest": "^23.3.12",
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
