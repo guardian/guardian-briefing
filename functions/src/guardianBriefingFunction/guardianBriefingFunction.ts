@@ -17,7 +17,8 @@ const response = (conv: DialogflowConversation) => {
   return getBriefingContent(url).then(briefing => {
     const data = new SimpleResponse({
       speech: ssmlGen(briefing.audioFileLocation),
-      text: "Today's Briefing",
+      text:
+        'The news you need to start your day. An experiment from the Voice Lab.',
     });
     conv.close(data);
   });
