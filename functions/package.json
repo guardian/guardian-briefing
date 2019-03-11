@@ -6,10 +6,11 @@
     "serve": "yarn run build && firebase serve --only functions",
     "shell": "yarn run build && firebase functions:shell",
     "start": "yarn run shell",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "firebase use guardian-briefing-84558 && firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "yarn jest",
-    "valid": "yarn run lint && yarn run build && yarn run test"
+    "valid": "yarn run lint && yarn run build && yarn run test",
+    "deploy-code": "firebase use code-guardian-briefing && firebase deploy --only functions:guardianBriefing"
   },
   "main": "lib/index.js",
   "dependencies": {
