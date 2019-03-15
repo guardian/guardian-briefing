@@ -53,7 +53,10 @@ const createAndUploadFile = (briefing: string, response: Response) => {
 const googleUpload = () => {
   return googleCloudStorage
     .bucket(cacheBucketName)
-    .upload(fileLocation, { public: true })
+    .upload(fileLocation, {
+      public: true,
+      metadata: { cacheControl: 'no-cache' },
+    })
     .then(_ => {
       return googleCloudStorage
         .bucket(snapshotBucketName)
