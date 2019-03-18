@@ -3,8 +3,10 @@ import {
   dialogflow,
   DialogflowConversation,
   SimpleResponse,
+  Response,
 } from 'actions-on-google';
 import { getBriefingContent } from './api';
+import { buildListFromArticles } from './richResponseBuilder';
 
 const appConfig = config();
 
@@ -20,7 +22,15 @@ const response = (conv: DialogflowConversation) => {
       text:
         'The news you need to start your day. An experiment from the Voice Lab.',
     });
-    conv.close(data);
+    if (conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
+      const responses: Response[] = [
+        data,
+        buildListFromArticles(briefing.content),
+      ];
+      conv.close(...responses);
+    } else {
+      conv.close(data);
+    }
   });
 };
 
