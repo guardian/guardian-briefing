@@ -12,16 +12,20 @@ This project contains two firebase functions.
   1. It's faster
   2. It stops the audio file the briefing function uses being generated every time a user uses the Guardian Briefing.
 
-## Setup
+# Set Up
 
-Using firebase cli tools:
-Make sure you're logged in:
+- You need permission to access the google cloud project
+- You need the [firebase cli](https://github.com/firebase/firebase-tools) installed
+- You need to log in to firebase using `firebase login`
+- You need to run `yarn install` from inside the `functions` directory
+- You need to set up environnement variables
+- You need to have service account credentials locally
 
-```
-firebase login
-```
+## Environment Variables
 
-This app requires local config. Once you're logged in run `firebase functions:config:get > ./functions/.runtimeconfig.json`
+This project requires environment variables. Run `firebase functions:config:get > .runtimeconfig.json` in the `functions` directory to run the function locally.
+
+# Service Account Credentials
 
 The app also requires a service account ID.
 
