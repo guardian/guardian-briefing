@@ -22,7 +22,7 @@ const response = (conv: DialogflowConversation) => {
       text:
         'The news you need to start your day. An experiment from the Voice Lab.',
     });
-    if (conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
+    if (canDisplayCarousel(conv)) {
       const responses: Response[] = [
         data,
         buildListFromArticles(briefing.content),
@@ -32,6 +32,13 @@ const response = (conv: DialogflowConversation) => {
       conv.close(data);
     }
   });
+};
+
+const canDisplayCarousel = (conv: DialogflowConversation) => {
+  return (
+    conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT') &&
+    conv.surface.capabilities.has('actions.capability.WEB_BROWSER')
+  );
 };
 
 const ssmlGen = (audioLink: string) => {
