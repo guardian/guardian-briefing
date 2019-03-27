@@ -7,6 +7,7 @@ import {
 } from 'actions-on-google';
 import { getBriefingContent } from './api';
 import { buildListFromArticles } from './richResponseBuilder';
+import { Locale, getLocale } from '../localeUtils';
 
 const appConfig = config();
 
@@ -15,7 +16,8 @@ const app = dialogflow<{}, {}>({
 });
 
 const response = (conv: DialogflowConversation) => {
-  const url: string = appConfig.briefing.content;
+  const locale: Locale = getLocale(conv.user.locale);
+  const url: string = getURL(locale);
   return getBriefingContent(url).then(briefing => {
     const data = new SimpleResponse({
       speech: ssmlGen(briefing.audioFileLocation),
@@ -32,6 +34,17 @@ const response = (conv: DialogflowConversation) => {
       conv.close(data);
     }
   });
+};
+
+const getURL = (locale: Locale) => {
+  switch (locale) {
+    case Locale.GB:
+      return appConfig.briefing.ukcontent;
+    case Locale.AU:
+      return appConfig.briefing.aucontent;
+    case Locale.US:
+      return appConfig.briefing.uscontent;
+  }
 };
 
 const canDisplayCarousel = (conv: DialogflowConversation) => {
