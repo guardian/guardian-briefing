@@ -1,6 +1,5 @@
 interface MorningBriefing {
-  ssml: string;
-  audioFileLocation: string;
+  audioFileLocation: [string] | [string, string];
   content: Article[];
 }
 

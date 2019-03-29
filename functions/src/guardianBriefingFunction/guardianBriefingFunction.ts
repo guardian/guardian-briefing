@@ -54,8 +54,22 @@ const canDisplayCarousel = (conv: DialogflowConversation) => {
   );
 };
 
-const ssmlGen = (audioLink: string) => {
-  return "<speak><audio src='" + audioLink + "'/></speak>";
+const ssmlGen = (audioLinks: [string, string] | [string]): string => {
+  if (audioLinks.length < 2) {
+    return "<speak><audio src='" + audioLinks + "'/></speak>";
+  } else {
+    return `
+      <speak>
+        <par>
+          <media xml:id='part1'>
+            <audio src='${audioLinks[0]}'/>
+          </media>
+          <media xml:id='part2' begin='part1.end-1.0s'>
+            <audio src='${audioLinks[1]}'/>
+          </media>
+        </par>
+      </speak>`;
+  }
 };
 
 app.intent('welcome_intent', response);
