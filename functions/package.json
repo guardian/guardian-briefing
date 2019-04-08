@@ -5,12 +5,12 @@
     "build": "tsc",
     "serve": "yarn run build && firebase serve --only functions",
     "shell": "yarn run build && firebase functions:shell",
-    "start": "yarn run shell",
     "deploy": "firebase use guardian-briefing-84558 && firebase deploy --only functions",
+    "deploySnapshotter": "firebase use guardian-briefing-84558 && firebase deploy --only functions:generateBriefing",
+    "deployBriefing": "firebase use guardian-briefing-84558 && firebase deploy --only functions:guardianBriefing",
     "logs": "firebase functions:log",
     "test": "yarn jest",
-    "valid": "yarn run lint && yarn run build && yarn run test",
-    "deploy-code": "firebase use code-guardian-briefing && firebase deploy --only functions:guardianBriefing"
+    "valid": "yarn run lint && yarn run build && yarn run test"
   },
   "main": "lib/index.js",
   "dependencies": {
