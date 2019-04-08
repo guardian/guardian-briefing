@@ -75,6 +75,10 @@ From inside the `functions` directory run `yarn deploy`. This will deploy both f
 
 `yarn deployBriefing` only deploys the Briefing function.
 
+These all deploy the project to PROD. Any changes that need to be made to the Dialogflow parts of the project need to done in the Dialogflow [console](https://console.dialogflow.com) (this only applies to the Guardian Briefing function).
+
+The deploy steps are outlined in the [firebase.json](./firebase.json) file and the default project ID is defined in [.firebaserc](./.firebaserc).
+
 ## Guardian Specific Information
 
 Guardian specific information about the project is available [here](https://github.com/guardian/voicelab-platform)
