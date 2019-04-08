@@ -44,6 +44,10 @@ The app also requires a service account ID.
 
 ## Run locally
 
+`yarn valid` will run the TypeScipt build step, the linter and all tests.
+
+`yarn test` will run all tests.
+
 [Blog post](https://www.theguardian.com/info/2019/jan/31/hey-google-help-me-use-cloud-functions) on firebase functions locally.
 
 From inside the `functions` directory run `yarn serve`. This will run both functions and provide local endpoints that can be curled.
@@ -81,4 +85,4 @@ The deploy steps are outlined in the [firebase.json](./firebase.json) file and t
 
 ## Guardian Specific Information
 
-Guardian specific information about the project is available [here](https://github.com/guardian/voicelab-platform)
+Guardian specific information about the project is available [here](https://github.com/guardian/voicelab-platform) in a private repo.
