@@ -19,6 +19,16 @@ This is good because:
 1. It's faster
 2. It stops the audio file the briefing function uses being generated every time a user uses the Guardian Briefing.
 
+### API Parameters for Snapshotter
+
+#### locale: Snapshotter can take snapshots of news templates for the UK, US and Australia.
+
+Params:
+
+- 'en-AU' : snapshots the Australian focused briefing
+- 'en-CA' & 'en-US' : snapshots the US focused briefing
+- all other values including 'en-GB', 'en-IN', 'en-SG' and when no locale is provided: snapshots the UK focused briefing
+
 # Set Up
 
 - You need permission to access the google cloud project
