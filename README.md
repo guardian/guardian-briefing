@@ -12,7 +12,7 @@ There is a [zip file](Guardian-Briefin.zip) for restoring the Dialogflow part of
 
 ## Snapshotter Function:
 
-This function runs every 5 minutes using Google Cloud Scheduler. It calls the [structured-news-api](https://github.com/guardian/structured-news-api) and uploads the JSON response to a Google Cloud Storage Bucket. This is so the Guardian Briefing Function can use this cached version of the SNAPI (structured news API) response. It also uploads a timestamped copy to a snapshot bucket so that there is a record of previous briefings.
+This function runs every 5 minutes using Google Cloud Scheduler. It calls the [structured-news-api](https://github.com/guardian/structured-news-api) and uploads the JSON response to a Google Cloud Storage Bucket. This is so the Guardian Briefing Function can use this cached version of the SNAPI (structured news API) response.
 
 This is good because:
 

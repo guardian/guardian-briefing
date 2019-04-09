@@ -9,7 +9,6 @@ const appConfig = config();
 
 const googleCloudStorage = new Storage();
 const cacheBucketName = 'gu-briefing-cache';
-const snapshotBucketName = 'gu-briefing-snapshots';
 const fileLocation = '/tmp/briefing-content.json';
 
 const generateBriefing = region('europe-west1').https.onRequest(
@@ -68,20 +67,11 @@ const createAndUploadFile = (
 };
 
 const googleUpload = (locale: Locale) => {
-  return googleCloudStorage
-    .bucket(cacheBucketName)
-    .upload(fileLocation, {
-      destination: getFileName(locale),
-      public: true,
-      metadata: { cacheControl: 'no-cache' },
-    })
-    .then(_ => {
-      return googleCloudStorage
-        .bucket(snapshotBucketName)
-        .upload(fileLocation, {
-          destination: `${new Date().toString()}-${getFileName(locale)}`,
-        });
-    });
+  return googleCloudStorage.bucket(cacheBucketName).upload(fileLocation, {
+    destination: getFileName(locale),
+    public: true,
+    metadata: { cacheControl: 'no-cache' },
+  });
 };
 
 const getFileName = (locale: Locale) => {
