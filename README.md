@@ -93,6 +93,10 @@ These all deploy the project to PROD. Any changes that need to be made to the Di
 
 The deploy steps are outlined in the [firebase.json](./firebase.json) file and the default project ID is defined in [.firebaserc](./.firebaserc).
 
+# Infrastructure
+
+![](GuardianBriefingInfrastructure.jpg)
+
 ## Guardian Specific Information
 
 Guardian specific information about the project is available [here](https://github.com/guardian/voicelab-platform) in a private repo.
